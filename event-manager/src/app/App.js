@@ -35,12 +35,12 @@ function App() {
         onClose={onRequestClose}
         onSubmit={onFormSubmit} />
       <div className="App-header">
-        <h1 className="App-title">Kumojin Event Manager</h1>
-      </div>
-      <div style={{textAlign: 'right'}}>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-3" onClick={openModal}>
-          Add Event
-        </button>
+        <h1 className="App-title font-bold">Kumojin Event Manager</h1>
+        <div className='align-right'>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-3" onClick={openModal}>
+            Add Event
+          </button>
+        </div>
       </div>
       <EventsPage eventList={response}/>
     </div>

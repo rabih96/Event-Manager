@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import delete, select
 from sqlalchemy.exc import IntegrityError
-from database import fetch_all_events
+from database import fetch_all_events, create_new_event, remove_event
 import model
 
 #Creating the app
@@ -27,9 +27,11 @@ async def list_events():
     return response
 
 @app.post('/api/event')
-def create_event(event: model.Event):
-    return 1
+async def create_event(event: model.Event):
+    response = await create_new_event(event)
+    return response
 
 @app.delete('/api/event/{event_id}')
-def delete_event(event_id: int):
-    return 1
+async def delete_event(event_id: int):
+    response = await remove_event(event_id)
+    return response

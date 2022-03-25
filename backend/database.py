@@ -11,11 +11,10 @@ async def fetch_all_events():
     query = db.select([event])
     return connection.execute(query).fetchall()
 
-# async def create_event(event):
-#     document = event
-#     result = await collection.insert_one(document)
-#     return document
+async def create_new_event(new_event):
+    query = db.insert(event).values(title = new_event.title, description = new_event.description, start_date = new_event.start_date, end_date = new_event.end_date)
+    return connection.execute(query)
 
-# async def remove_event(title):
-#     await collection.delete_one({"title": title})
-#     return True
+async def remove_event(event_id):
+    query = db.delete(event).where(event.columns.id == event_id)
+    return connection.execute(query)
