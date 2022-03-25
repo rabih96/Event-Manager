@@ -1,0 +1,19 @@
+.App {
+}
+
+.App-header {
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App-title {
+  margin: 2rem;
+  padding-left: 3.5rem;
+  text-align: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-image: url("../assets/logo.svg");
+}
