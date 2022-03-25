@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "Event-Manager-Kumojin"
+version = "0.1.0"
+description = ""
+authors = ["Rabih Mteirek <rabihmteyrek@hotmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "0.65.1"
+fastapi-sqla = "^1.2.4"
+SQLAlchemy = "^1.4.15"
+alembic = "1.6.4"
+Faker = "^13.0.0"
+hypercorn = "^0.13.2"
+
+[tool.poetry.dev-dependencies]
+black = "21.5b1"
+pylama = "^7.7.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
