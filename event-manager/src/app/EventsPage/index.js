@@ -5,7 +5,7 @@ import axios from "axios";
 import "./index.css";
 
 const EventsPage = () => {
-  const [response, setResponse] = useState([{}]);
+  const [response, setResponse] = useState();
   const [updatedResponse, setUpdatedResponse] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -45,8 +45,12 @@ const EventsPage = () => {
   }, [updatedResponse]);
 
   const renderEvents = () => {
-    if (!response || Object.keys(response[0]).length === 0) {
+    if (!response) {
       return <div className="events-page font-bold">Fetching Events...</div>;
+    }
+
+    if (response.length === 0) {
+      return <div className="events-page font-bold">No Events Found.</div>;
     }
 
     return (
