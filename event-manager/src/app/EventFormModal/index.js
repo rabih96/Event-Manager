@@ -1,53 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css"
 import Modal from "react-modal";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const EventFormModal = ({ isOpen, onClose, onSubmit }) => {
-  const { register, handleSubmit, reset } = useForm();
+  const { control, register, handleSubmit, reset } = useForm();
 
   const resetBeforeSubmit = (data) => {
     reset({ title: '', description: '', start_date: '', end_date: '' });
+    data["start_date"] = data["start_date"].getTime().toString()
+    data["end_date"] = data["end_date"].getTime().toString()
     onSubmit(data);
   };
 
+  // const [startDate, setStartDate] = useState(null);
+  // const [endDate, setEndDate] = useState(null);
+
   return (
+
     <Modal
       isOpen={isOpen}
       onRequestClose={onClose}
       className="EventFormModal"
       overlayClassName="EventFormModal-overlay"
     >
-      <div className="EventFormModal-header">
+      <div className="EventFormModal-header bg-blue-500">
         <h2>Create Event</h2>
       </div>
-      <div className="NewPatientModal-content">
+      <div className="EventFormModal-content">
         <form onSubmit={handleSubmit(resetBeforeSubmit)}>
-          <div className="NewPatientModal-form-input">
+          <div className="EventFormModal-form-input">
             <label htmlFor="eventTitle">Title:</label>
             <input id="eventTitle" {...register("title", {required: true})}/>
           </div>
-          <div className="NewPatientModal-form-input">
+          <div className="EventFormModal-form-input">
             <label htmlFor="eventDesc">Description:</label>
             <input id="eventDesc" {...register("description", {required: true})}/>
           </div>
-          <div className="NewPatientModal-form-input">
+          <div className="EventFormModal-form-input">
             <label htmlFor="startDate">Starts on:</label>
-            <input id="startDate" {...register(
-              "start_date",
-              {required: true, pattern: /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/}
-            )}/>
+            <Controller
+              control={control}
+              name="start_date"
+              render={({ field: { onChange, value } }) => (
+                <DatePicker
+                  onChange={onChange}
+                  selected={value}
+                  timeInputLabel="Time:"
+                  dateFormat="MM/dd/yyyy h:mm aa"
+                  showTimeInput
+                />
+              )}
+            />
           </div>
-          <div className="NewPatientModal-form-input">
+          <div className="EventFormModal-form-input">
             <label htmlFor="endDate">Ends on:</label>
-            <input id="endDate" {...register(
-              "end_date",
-              {required: true, pattern: /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/}
-            )}/>
+            <Controller
+              control={control}
+              name="end_date"
+              render={({ field: { onChange, value } }) => (
+                <DatePicker
+                  onChange={onChange}
+                  selected={value}
+                  timeInputLabel="Time:"
+                  dateFormat="MM/dd/yyyy h:mm aa"
+                  showTimeInput
+                  // minDate={startDate}
+                />
+              )}
+            />
           </div>
-          <div className="NewPatientModal-form-input">
-            <input type="submit" className="NewPatientModal-submit" />
-          </div>
+          <input type="submit" className="EventFormModal-submit bg-blue-500" />
         </form>
       </div>
     </Modal>

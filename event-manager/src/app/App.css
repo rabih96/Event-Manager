@@ -1,17 +1,3 @@
 .App {
   font-size: large;
 }
-
-.App-header {
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-}
-
-.App-title {
-  margin: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
