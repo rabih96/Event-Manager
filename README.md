@@ -41,19 +41,19 @@ Stack used:
 ## Screenshots
 
 #### Homepage
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/rabih96/Kumojin/blob/master/Screenshots/screenshot_1.png)
 
 #### Adding new Event
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/rabih96/Kumojin/blob/master/Screenshots/screenshot_2.png)
 
 #### Date picker for Event
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/rabih96/Kumojin/blob/master/Screenshots/screenshot_3.png)
 
 #### Added Event
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/rabih96/Kumojin/blob/master/Screenshots/screenshot_4.png)
 
 #### Responsive Homepage
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/rabih96/Kumojin/blob/master/Screenshots/screenshot_5.png)
 
 
 ## Deployment
