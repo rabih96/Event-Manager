@@ -28,7 +28,7 @@ def upgrade():
             server_default=sa.func.current_timestamp(),
             nullable=False,
         ),
-        sa.Column('title', sa.String, nullable=False),
+        sa.Column('title', sa.String, sa.CheckConstraint("LENGTH(title) <= 32"), nullable=False),
         sa.Column('description', sa.String, nullable=False),
         sa.Column(
             "start_date",
@@ -37,6 +37,7 @@ def upgrade():
         ),sa.Column(
             "end_date",
             sa.DateTime(timezone=True),
+            sa.CheckConstraint("end_date >= start_date"),
             nullable=False,
         ),
     )
