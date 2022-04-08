@@ -1,5 +1,5 @@
 
-# Kumojin Event Manager
+# Event Manager
 
 Project made for Kumojin interview process.
 
